@@ -1,6 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from 'src/app/models/user';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -8,7 +9,7 @@ import { User } from 'src/app/models/user';
 })
 export class UserService {
 
-  private API_URL = "https://jsonplaceholder.typicode.com";
+  private API_URL = "https://jsonplaceholder.typicode.com/users";
 
   //httpClient : HttpClient = inject(HttpClient)
 
@@ -16,8 +17,7 @@ export class UserService {
 
    }
 
-  getPosts(): any {  
-
-    return this.httpClient.get(`${this.API_URL}/users`);
+   getUsers(): Observable<User[]> {
+    return this.httpClient.get<User[]>(this.API_URL)
   }
 }

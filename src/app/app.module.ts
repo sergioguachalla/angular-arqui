@@ -1,22 +1,25 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
-import { AppComponent } from './app.component';
-import { CryptocurrenciesComponent } from './components/cryptocurrencies/cryptocurrencies.component';
-import { PostsComponent } from './components/posts/posts.component';
-import { UsersComponent } from './components/users/users.component';
+import { AppComponent } from '../app/app.component';
+import { UsersComponent } from '../app/components/users/users.component';
+import { PostsComponent } from '../app/components/posts/posts.component';
+import { AppRoutingModule } from './app-routing.module';
+import { MainComponent } from './components/main/main.component'; // Importa AppRoutingModule
 
 @NgModule({
   declarations: [
     AppComponent,
-    CryptocurrenciesComponent,
+    UsersComponent,
     PostsComponent,
-    UsersComponent
+    MainComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule // Agrega AppRoutingModule aquí
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
